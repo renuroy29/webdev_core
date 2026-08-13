@@ -3,90 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A modern interactive guide exploring foundational HTML, CSS, and JavaScript concepts.">
-    <title>Web Development Essentials | HTML, CSS & JavaScript</title>
+    <meta name="description" content="Intermediate HTML, CSS, and JavaScript featuring Contact Form Validation, Responsive Layouts, Dynamic To-Do List, and Image Gallery.">
+    <title>ApexPlanet Nexus | Interactive Web Dev Suite</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Decorators -->
-    <div class="bg-blur blur-1"></div>
-    <div class="bg-blur blur-2"></div>
-    <!-- Navigation Header -->
+    <!-- Ambient Background Blurs -->
+    <div class="bg-blur blur-top-left"></div>
+    <div class="bg-blur blur-bottom-right"></div>
+
+    <!-- Main Flexbox Navigation Bar -->
     <header class="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="logo">
-                <span class="logo-icon">&lt;/&gt;</span>
-                <span class="logo-text">WebDev<span class="highlight">Core</span></span>
-            </a>
-            <nav class="nav-links">
-                <a href="#html-sec" class="nav-link">1. HTML Structure</a>
-                <a href="#css-sec" class="nav-link">2. CSS Styling</a>
-                <a href="#js-sec" class="nav-link">3. JS Interactivity</a>
-            </nav>
-        </div>
-    </header>
-    <!-- Main Container -->
-    <main class="container">
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="hero-badge">Foundational Web Development</div>
-            <h1 class="hero-title">Mastering HTML, CSS & JavaScript</h1>
-            <p class="hero-subtitle">
-                Welcome to your interactive web building playground. Learn how structure, design aesthetics, and modern interactivity combine to create stunning web experiences.
-            </p>
-                            JavaScript brings your webpage to life by responding to user events, updating the Document Object Model (DOM), and displaying dynamic alerts.
-            </p>
-            <div class="interactive-demo-area">
-                <div class="interactive-card">
-                    <h3>Interactive Event Trigger</h3>
-                    <p>Click the primary action button below to trigger a JavaScript alert message!</p>
-                    
-                    <div class="button-group">
-                        <button id="alertBtn" class="btn btn-primary btn-lg">
-                            <span>⚡ Trigger JS Alert</span>
-                        </button>
-                        <button id="toastBtn" class="btn btn-glass btn-lg">
-                            <span>✨ Trigger Custom Toast</span>
-                        </button>
-                    </div>
+        <div class="nav-container flex-row justify-between align-center">
+            <a href="#hero" class="logo flex-row align-center gap-sm">
+                <span class="logo-badge">&lt;/&gt;</span>
+                <div class="logo-brand flex-col">
+                    <span class="logo-title">Apex<span class="highlight">Nexus</span></span>
+                    <span class="logo-subtitle">Software Pvt Ltd • Task 2</span>
                 </div>
-                <!-- Live Counter Demo -->
-                <div class="interactive-card">
-                    <h3>DOM State Interaction Counter</h3>
-                    <p>Test dynamic DOM manipulation by clicking the counter buttons:</p>
-                    <div class="counter-wrapper">
-                        <button id="decrementBtn" class="btn btn-sm">-</button>
-                        <span id="counterValue" class="counter-display">0</span>
-                        <button id="incrementBtn" class="btn btn-sm">+</button>
-                        <button id="resetBtn" class="btn btn-sm btn-outline">Reset</button>
+            </a>
+            
+            <nav class="nav-links flex-row align-center gap-md">
+                <a href="#contact-section" class="nav-link">Contact Form</a>
+                <a href="#layout-section" class="nav-link">Flex & Grid</a>
+                <a href="#todo-section" class="nav-link">Dynamic To-Do</a>
+                <a href="#gallery-section" class="nav-link">Image Gallery</a>
+            </nav>
+
+            <div class="nav-actions flex-row align-center gap-sm">
+                <span class="task-pill">Task - 2</span>
+                <button id="mobileMenuBtn" class="mobile-toggle" aria-label="Toggle Navigation Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Dropdown Menu -->
+        <nav id="mobileNav" class="mobile-nav flex-col gap-sm hidden">
+            <a href="#contact-section" class="mobile-link">1. Contact Form & Validation</a>
+            <a href="#layout-section" class="mobile-link">2. Flexbox & Grid Layout</a>
+            <a href="#todo-section" class="mobile-link">3. Dynamic To-Do List</a>
+            <a href="#gallery-section" class="mobile-link">4. Dynamic Image Gallery</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content container flex-col gap-xl">
+
+        <!-- Hero Showcase Banner -->
+        <section id="hero" class="hero-card glass-panel flex-col gap-md">
+            <div class="hero-header flex-row justify-between align-center wrap gap-sm">
+                <div class="badge-group flex-row align-center gap-xs">
+                    <span class="status-dot"></span>
+                    <span class="badge-text">Intermediate HTML, CSS & JavaScript</span>
+                </div>
+                <span class="timeline-badge">TimeLine : 9 Days</span>
+            </div>
+            
+            <h1 class="hero-title">ApexPlanet <span class="gradient-text">Nexus Studio</span></h1>
+            <p class="hero-description">
+                An interactive web application showcasing modern web standards: semantic HTML forms, robust JavaScript real-time form validation, responsive Flexbox and CSS Grid layout architecture, and dynamic DOM manipulation with an interactive To-Do App and Image Gallery.
+            </p>
+
+            <div class="hero-metrics grid-4 gap-md">
+                <div class="metric-box flex-col justify-center">
+                    <span class="metric-num">01</span>
+                    <span class="metric-label">Contact Form & Validation</span>
+                </div>
+                <div class="metric-box flex-col justify-center">
+                    <span class="metric-num">02</span>
+                    <span class="metric-label">JS Form Validation</span>
+                </div>
+                <div class="metric-box flex-col justify-center">
+                    <span class="metric-num">03</span>
+                    <span class="metric-label">Flexbox & Grid Layouts</span>
+                </div>
+                <div class="metric-box flex-col justify-center">
+                    <span class="metric-num">04</span>
+                    <span class="metric-label">Dynamic DOM Apps</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 1 & STEP 2: Contact Form & JS Validation -->
+        <section id="contact-section" class="section-card glass-panel flex-col gap-lg">
+            <div class="section-header flex-col gap-xs">
+                <div class="flex-row align-center gap-sm">
+                    <span class="step-badge">Step 1 & 2</span>
+                    <h2 class="section-title">Contact Form & JS Real-Time Validation</h2>
+                </div>
+                <p class="section-subtitle">
+                    Build forms with input types like text, email, select, textareas and validate required fields and email formats dynamically.
+                </p>
+            </div>
+
+            <div class="contact-grid grid-2 gap-xl align-start">
+                <!-- Form Element -->
+                <form id="contactForm" class="contact-form flex-col gap-md" novalidate>
+                    <div class="form-group flex-col gap-xs">
+                        <label for="fullName" class="form-label">Full Name <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="text" id="fullName" name="fullName" class="form-input" placeholder="e.g. John Doe" required>
+                            <span class="input-icon">👤</span>
+                        </div>
+                        <span id="nameError" class="error-msg hidden">Please enter your name (at least 2 characters).</span>
+                    </div>
+
+                    <div class="form-group flex-col gap-xs">
+                        <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" name="email" class="form-input" placeholder="e.g. name@example.com" required>
+                            <span class="input-icon">✉️</span>
+                        </div>
+                        <span id="emailError" class="error-msg hidden">Please enter a valid email address (e.g. user@domain.com).</span>
+                    </div>
+
+                    <div class="form-row grid-2 gap-md">
+                        <div class="form-group flex-col gap-xs">
+                            <label for="subject" class="form-label">Inquiry Subject <span class="required">*</span></label>
+                            <select id="subject" name="subject" class="form-select" required>
+                                <option value="">Select subject...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                                <option value="DOM Manipulation">DOM Manipulation</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                            <span id="subjectError" class="error-msg hidden">Please select an inquiry subject.</span>
+                        </div>
+
+                        <div class="form-group flex-col gap-xs">
+                            <label for="priority" class="form-label">Priority Level</label>
+                            <select id="priority" name="priority" class="form-select">
+                                <option value="Normal">Normal Priority</option>
+                                <option value="High">High Priority</option>
+                                <option value="Urgent">Urgent Priority</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group flex-col gap-xs">
+                        <label for="message" class="form-label">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" class="form-textarea" rows="4" placeholder="Type your detailed message here (minimum 10 characters)..." required></textarea>
+                        <div class="flex-row justify-between align-center">
+                            <span id="messageError" class="error-msg hidden">Message must be at least 10 characters long.</span>
+                            <span id="charCount" class="char-counter">0 / 300</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions flex-row gap-md">
+                        <button type="submit" id="submitBtn" class="btn btn-primary flex-1">
+                            <span>Send Message</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+                        <button type="button" id="resetFormBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+
+                <!-- Validation Rules & Live Preview Status -->
+                <div class="validation-info-card flex-col gap-md">
+                    <h3>Validation Checklist</h3>
+                    <p class="text-muted">JavaScript validates inputs in real-time on blur/input events as well as during submit processing.</p>
+
+                    <div class="checklist flex-col gap-sm">
+                        <div id="checkName" class="check-item flex-row align-center gap-sm">
+                            <span class="check-icon">⚪</span>
+                            <span>Full Name provided (min 2 chars)</span>
+                        </div>
+                        <div id="checkEmail" class="check-item flex-row align-center gap-sm">
+                            <span class="check-icon">⚪</span>
+                            <span>Valid email regex match (user@domain)</span>
+                        </div>
+                        <div id="checkSubject" class="check-item flex-row align-center gap-sm">
+                            <span class="check-icon">⚪</span>
+                            <span>Subject category selected</span>
+                        </div>
+                        <div id="checkMessage" class="check-item flex-row align-center gap-sm">
+                            <span class="check-icon">⚪</span>
+                            <span>Message length validation (min 10 chars)</span>
+                        </div>
+                    </div>
+
+                    <!-- Submission Feedback Card -->
+                    <div id="formSuccessCard" class="form-success-card flex-col gap-xs hidden">
+                        <div class="flex-row align-center gap-sm">
+                            <span class="success-icon">✓</span>
+                            <strong class="success-title">Form Submitted Successfully!</strong>
+                        </div>
+                        <p id="successDetails" class="success-text"></p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- STEP 3: Responsive Layout Using Flexbox and CSS Grid -->
+        <section id="layout-section" class="section-card glass-panel flex-col gap-lg">
+            <div class="section-header flex-col gap-xs">
+                <div class="flex-row align-center gap-sm">
+                    <span class="step-badge">Step 3</span>
+                    <h2 class="section-title">Responsive Layout Architecture</h2>
+                </div>
+                <p class="section-subtitle">
+                    Structure webpages using Flexbox for 1D navigation/toolbars and CSS Grid for 2D content matrices, with CSS media queries.
+                </p>
+            </div>
+
+            <!-- Interactive Layout Demonstration Grid -->
+            <div class="layout-demo-grid grid-2 gap-lg">
+                <!-- Flexbox Toolbar Demo -->
+                <div class="layout-box flex-col gap-md">
+                    <div class="layout-box-header flex-row justify-between align-center">
+                        <span class="layout-tag flexbox-tag">Flexbox Layout (1-Dimensional)</span>
+                        <span class="layout-info">Alignment & Spacing</span>
+                    </div>
+                    <p class="layout-desc">Flexbox excels at distributing items along a single axis (row or column), ideal for headers, toolbars, and action rows.</p>
+                    
+                    <div class="flexbox-demo-container flex-row justify-between align-center wrap gap-sm">
+                        <div class="flex-item">Flex Item A</div>
+                        <div class="flex-item flex-grow-1">Flex Item B (Grow)</div>
+                        <div class="flex-item">Flex Item C</div>
+                    </div>
+                </div>
+
+                <!-- CSS Grid Demo -->
+                <div class="layout-box flex-col gap-md">
+                    <div class="layout-box-header flex-row justify-between align-center">
+                        <span class="layout-tag grid-tag">CSS Grid Layout (2-Dimensional)</span>
+                        <span class="layout-info">Multi-Column Matrix</span>
+                    </div>
+                    <p class="layout-desc">CSS Grid handles complex 2D layouts with auto-fitting columns (`repeat(auto-fit, minmax(180px, 1fr))`) and gaps.</p>
+                    
+                    <div class="grid-demo-container grid-3 gap-sm">
+                        <div class="grid-item">Grid Box 1</div>
+                        <div class="grid-item">Grid Box 2</div>
+                        <div class="grid-item">Grid Box 3</div>
+                        <div class="grid-item span-2">Grid Box 4 (Span 2)</div>
+                        <div class="grid-item">Grid Box 5</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 4A: Dynamic To-Do List (DOM Manipulation) -->
+        <section id="todo-section" class="section-card glass-panel flex-col gap-lg">
+            <div class="section-header flex-col gap-xs">
+                <div class="flex-row align-center gap-sm">
+                    <span class="step-badge">Step 4A</span>
+                    <h2 class="section-title">Dynamic To-Do Application</h2>
+                </div>
+                <p class="section-subtitle">
+                    Demonstrating real-time JavaScript DOM creation, state management, event delegation, and dynamic filtering.
+                </p>
+            </div>
+
+            <div class="todo-wrapper flex-col gap-md">
+                <!-- Task Input Bar (Flexbox) -->
+                <form id="todoForm" class="todo-input-bar flex-row gap-sm wrap">
+                    <input type="text" id="taskInput" class="form-input flex-grow-1" placeholder="Add a new task (e.g. Complete HTML/CSS Flexbox assignment)..." required>
+                    
+                    <select id="taskCategory" class="form-select width-auto">
+                        <option value="General">🏷️ General</option>
+                        <option value="Development">💻 Development</option>
+                        <option value="Design">🎨 Design</option>
+                        <option value="Urgent">🔥 Urgent</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span>+ Add Task</span>
+                    </button>
+                </form>
+
+                <!-- Filter & Controls Toolbar -->
+                <div class="todo-toolbar flex-row justify-between align-center wrap gap-sm">
+                    <div class="filter-buttons flex-row gap-xs">
+                        <button class="filter-btn active" data-filter="all">All Tasks (<span id="countAll">0</span>)</button>
+                        <button class="filter-btn" data-filter="active">Active (<span id="countActive">0</span>)</button>
+                        <button class="filter-btn" data-filter="completed">Completed (<span id="countCompleted">0</span>)</button>
+                    </div>
+
+                    <div class="todo-actions flex-row align-center gap-sm">
+                        <span id="taskStatsText" class="text-muted">0 items remaining</span>
+                        <button id="clearCompletedBtn" class="btn btn-sm btn-outline">Clear Completed</button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Task List Container -->
+                <ul id="taskList" class="task-list flex-col gap-sm">
+                    <!-- Task items populated dynamically via JS -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- STEP 4B: Dynamic Image Gallery (DOM Manipulation) -->
+        <section id="gallery-section" class="section-card glass-panel flex-col gap-lg">
+            <div class="section-header flex-row justify-between align-center wrap gap-sm">
+                <div class="flex-col gap-xs">
+                    <div class="flex-row align-center gap-sm">
+                        <span class="step-badge">Step 4B</span>
+                        <h2 class="section-title">Dynamic Interactive Image Gallery</h2>
+                    </div>
+                    <p class="section-subtitle">
+                        Add, filter, view in Lightbox, and dynamically remove images with smooth DOM updates.
+                    </p>
+                </div>
+                <button id="openAddImageModalBtn" class="btn btn-primary">
+                    <span>+ Add New Image</span>
+                </button>
+            </div>
+
+            <!-- Gallery Category Filters -->
+            <div class="gallery-toolbar flex-row align-center gap-xs wrap">
+                <button class="gallery-filter-btn active" data-category="all">All Photos</button>
+                <button class="gallery-filter-btn" data-category="tech">Technology</button>
+                <button class="gallery-filter-btn" data-category="design">3D & Design</button>
+                <button class="gallery-filter-btn" data-category="nature">Nature & Minimal</button>
+            </div>
+
+            <!-- CSS Grid Gallery Container -->
+            <div id="galleryGrid" class="gallery-grid grid-3 gap-md">
+                <!-- Gallery Cards rendered dynamically -->
+            </div>
+        </section>
+
     </main>
-    <!-- Notification Toast Container -->
-    <div id="toast" class="toast hidden">
-        <div class="toast-content">
-            <span class="toast-icon">🚀</span>
-            <div>
-                <strong id="toastTitle">Interactive Notification!</strong>
-                <p id="toastMessage">JavaScript successfully handled an event!</p>
+
+    <!-- Add Image Modal -->
+    <div id="imageModal" class="modal-overlay hidden flex-row align-center justify-center">
+        <div class="modal-card glass-panel flex-col gap-md">
+            <div class="modal-header flex-row justify-between align-center">
+                <h3>Add New Image to Gallery</h3>
+                <button id="closeImageModalBtn" class="close-btn">&times;</button>
+            </div>
+            
+            <form id="addImageForm" class="flex-col gap-sm">
+                <div class="form-group flex-col gap-xs">
+                    <label for="imgTitle" class="form-label">Image Title</label>
+                    <input type="text" id="imgTitle" class="form-input" placeholder="e.g. Neon Cyber Workspace" required>
+                </div>
+
+                <div class="form-group flex-col gap-xs">
+                    <label for="imgCategory" class="form-label">Category</label>
+                    <select id="imgCategory" class="form-select">
+                        <option value="tech">Technology</option>
+                        <option value="design">3D & Design</option>
+                        <option value="nature">Nature & Minimal</option>
+                    </select>
+                </div>
+
+                <div class="form-group flex-col gap-xs">
+                    <label for="imgUrl" class="form-label">Image URL</label>
+                    <input type="url" id="imgUrl" class="form-input" placeholder="https://images.unsplash.com/..." required>
+                    <span class="text-muted text-xs">Or choose preset:</span>
+                    <div class="preset-links flex-row gap-xs wrap">
+                        <button type="button" class="preset-btn" data-url="assets/tech_workspace.jpg" data-title="Developer Setup" data-cat="tech">Tech Workspace</button>
+                        <button type="button" class="preset-btn" data-url="assets/design_3d.jpg" data-title="Abstract 3D Hologram" data-cat="design">3D Design</button>
+                        <button type="button" class="preset-btn" data-url="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" data-title="Microchip Circuit" data-cat="tech">Circuitry</button>
+                    </div>
+                </div>
+
+                <div class="modal-actions flex-row justify-end gap-sm margin-top-sm">
+                    <button type="button" id="cancelAddImgBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Image</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-overlay hidden flex-col align-center justify-center">
+        <button id="closeLightboxBtn" class="lightbox-close">&times;</button>
+        <div class="lightbox-content flex-col align-center gap-sm">
+            <img id="lightboxImg" src="" alt="Full Preview">
+            <div class="lightbox-caption flex-row justify-between align-center width-100">
+                <span id="lightboxTitle">Image Title</span>
+                <span id="lightboxCategory" class="badge-text">Category</span>
             </div>
         </div>
     </div>
-<!-- Footer -->
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content flex-row align-center gap-sm">
+            <span id="toastIcon" class="toast-icon">🚀</span>
+            <div class="flex-col">
+                <strong id="toastTitle">Notification</strong>
+                <p id="toastMessage">Action completed successfully.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2026 Foundational Web Development Showcase. Built with HTML5, CSS3, and JavaScript.</p>
+        <div class="footer-container flex-col align-center gap-xs">
+            <p>&copy; 2026 ApexPlanet Software Pvt Ltd. All rights reserved.</p>
+            <p class="text-muted text-xs">Built with Semantic HTML5, Vanilla CSS3 (Flexbox & CSS Grid), and Modular JavaScript DOM API.</p>
         </div>
     </footer>
+
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
